@@ -41,9 +41,9 @@ int main() {
   i = cin.get();  
   fgets(password, sizeof(password), stdin);
   for( int t = 0 ; t <= longc + 1 ; t ++ ){
-  	if(content[t] >= 65 && content[t] <= 90){
+  	if(content[t] >= 'A' && content[t] <= 'Z'){
   		out[t] = lock(content[t], password[t % longp]);
-	  } else if(content[t] >= 97 && content[t] <= 122){
+	  } else if(content[t] >= 'a' && content[t] <= 'z'){
 	  	out[t] = lock(content[t], password[t % longp]);
 	  } else{
 	  	out[t] = content[t];
