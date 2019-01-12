@@ -16,8 +16,7 @@ int lock( int a, int b ){//只能是英文字母，都會變小寫
   } else if( a >= 'a' && a <= 'z' ){
     a += b;
   } else{
-    cout << "input encrypt ERROR!";
-    return 0;
+    return a;
   }
   if( a > 'z' ){
     a -= 26;//超出z
@@ -41,27 +40,12 @@ int main() {
   i = cin.get();  
   fgets(password, sizeof(password), stdin);
   for( int t = 0 ; t <= longc + 1 ; t ++ ){
-  	if(content[t] >= 'A' && content[t] <= 'Z'){
-  		out[t] = lock(content[t], password[t % longp]);
-	  } else if(content[t] >= 'a' && content[t] <= 'z'){
-	  	out[t] = lock(content[t], password[t % longp]);
-	  } else{
-	  	out[t] = content[t];
-	  }
+  	out[t] = lock(content[t], password[t % longp]);
   }
   cout << "密文:";
   for( int t = 0 ; t < longc ; t ++ ){
   	cout << out[t];
   }
-  
-//  cout << "\n====Test zone\n";
-//  cout << sizeof(content) << sizeof(password) << sizeof(out);
-//  cout << "c";
-//  puts(content);
-//  cout << "p";
-//  puts(password);
-//  cout << "o";
-//  puts(out);
   system("Pause");
   return 0;
 }
